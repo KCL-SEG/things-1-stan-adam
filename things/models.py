@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models import Model
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Thing(Model):
     name = models.CharField(
@@ -15,5 +15,6 @@ class Thing(Model):
         unique=False, 
         validators=[
             MaxValueValidator(100),
+            MinValueValidator(0)
         ]
         )
